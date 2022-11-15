@@ -1,0 +1,6 @@
+E:\Coding\Csharp\SchoolManagementAPI\obj\Debug\net7.0\SchoolManagementAPI.csproj.AssemblyReference.cache
+E:\Coding\Csharp\SchoolManagementAPI\obj\Debug\net7.0\SchoolManagementAPI.GeneratedMSBuildEditorConfig.editorconfig
+E:\Coding\Csharp\SchoolManagementAPI\obj\Debug\net7.0\SchoolManagementAPI.AssemblyInfoInputs.cache
+E:\Coding\Csharp\SchoolManagementAPI\obj\Debug\net7.0\SchoolManagementAPI.AssemblyInfo.cs
+E:\Coding\Csharp\SchoolManagementAPI\obj\Debug\net7.0\SchoolManagementAPI.csproj.CoreCompileInputs.cache
+E:\Coding\Csharp\SchoolManagementAPI\obj\Debug\net7.0\SchoolManagementAPI.MvcApplicationPartsAssemblyInfo.cache
