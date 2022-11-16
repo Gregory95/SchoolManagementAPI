@@ -1,31 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Coding\\Csharp\\SchoolManagementAPI\\SchoolManagementAPI.csproj": {}
+    "/home/gko95/Workspace/SchoolManagementAPI/SchoolManagementAPI.csproj": {}
   },
   "projects": {
-    "E:\\Coding\\Csharp\\SchoolManagementAPI\\SchoolManagementAPI.csproj": {
+    "/home/gko95/Workspace/SchoolManagementAPI/SchoolManagementAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Coding\\Csharp\\SchoolManagementAPI\\SchoolManagementAPI.csproj",
+        "projectUniqueName": "/home/gko95/Workspace/SchoolManagementAPI/SchoolManagementAPI.csproj",
         "projectName": "SchoolManagementAPI",
-        "projectPath": "E:\\Coding\\Csharp\\SchoolManagementAPI\\SchoolManagementAPI.csproj",
-        "packagesPath": "C:\\Users\\Desktop\\.nuget\\packages\\",
-        "outputPath": "E:\\Coding\\Csharp\\SchoolManagementAPI\\obj\\",
+        "projectPath": "/home/gko95/Workspace/SchoolManagementAPI/SchoolManagementAPI.csproj",
+        "packagesPath": "/home/gko95/.nuget/packages/",
+        "outputPath": "/home/gko95/Workspace/SchoolManagementAPI/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Desktop\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/gko95/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -137,8 +131,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -150,7 +143,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/dotnet6-6.0.110/sdk/6.0.110/RuntimeIdentifierGraph.json"
         }
       }
     }
