@@ -401,7 +401,6 @@ namespace SchoolManagementAPI.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Address")
-                        .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
@@ -412,12 +411,10 @@ namespace SchoolManagementAPI.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("LandLine1")
-                        .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("LandLine2")
-                        .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
@@ -439,7 +436,6 @@ namespace SchoolManagementAPI.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Region")
-                        .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
@@ -603,7 +599,6 @@ namespace SchoolManagementAPI.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasMaxLength(1000)
                         .HasColumnType("nvarchar(1000)");
 
