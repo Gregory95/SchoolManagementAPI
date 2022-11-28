@@ -12,7 +12,7 @@ using SchoolManagementAPI.Infrastructure;
 namespace SchoolManagementAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221116161342_Init")]
+    [Migration("20221116162537_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
