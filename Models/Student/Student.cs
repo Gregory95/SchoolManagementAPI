@@ -15,12 +15,12 @@ namespace SchoolManagementAPI.Models.Student
         [MaxLength(255)]
         public string IdentificationNumber { get; set; }
         [MaxLength(255)]
-        public string? Email { get; set; }
+        public string Email { get; set; }
         public DateTime DateOfBirth { get; set; }
         [MaxLength(255)]
-        public string? MobileNumber { get; set; }
+        public string MobileNumber { get; set; }
         public int? SchoolId { get; set; }
         [ForeignKey("SchoolId")]
-        public SchoolManagementAPI.Models.School.School? School { get; set; }
+        public SchoolManagementAPI.Models.School.School School { get; set; }
     }
 }

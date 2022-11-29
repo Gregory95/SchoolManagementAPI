@@ -1,20 +1,8 @@
-using Microsoft.AspNetCore.Diagnostics;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.ComponentModel.DataAnnotations;
-using System.Net;
-using System.Security.Authentication;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-
 namespace SchoolManagementAPI.Infrastructure
 {
     public class JsonExceptionMiddleware
     {
-        public JsonExceptionMiddleware()
-        {
-        }
+        public JsonExceptionMiddleware() { }
 
         public async Task Invoke(HttpContext context)
         {

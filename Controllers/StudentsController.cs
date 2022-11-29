@@ -12,7 +12,7 @@ namespace SchoolManagementAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class StudentController : ControllerBase
+    public class StudentController : BaseApiController
     {
         private readonly ApplicationDbContext _db;
         private readonly IMapper _mapper;

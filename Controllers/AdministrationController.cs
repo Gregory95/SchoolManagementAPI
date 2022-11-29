@@ -1,19 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using SchoolManagementAPI.Infrastructure;
-using SchoolManagementAPI.Interfaces;
-using NLog;
-using SchoolManagementAPI.Infrastructure.Repositories;
-using SchoolManagementAPI.ViewModels.Application;
-using SchoolManagementAPI.ViewModels.Role;
-using Microsoft.AspNetCore.Identity;
-using SchoolManagementAPI.Models.User;
-
+﻿using NLog;
 namespace SchoolManagementAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AdministrationController : ControllerBase
+    public class AdministrationController : BaseApiController
     {
         private readonly ApplicationDbContext _db;
         private readonly UserManager<ApplicationUser> _userManager;

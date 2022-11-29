@@ -61,7 +61,6 @@ namespace SchoolManagementAPI.Infrastructure.Repositories
                 throw new Exception("School does not exist");
             }
 
-            existingStudent.ModifiedDate = DateTime.UtcNow;
             existingStudent.FirstName = model.FirstName;
             existingStudent.LastName = model.LastName;
             existingStudent.Email = model.Email;
@@ -83,8 +82,8 @@ namespace SchoolManagementAPI.Infrastructure.Repositories
             .Select(x => new StudentVM
             {
                 Id = x.Id,
-                CreatedDate = x.CreatedDate,
-                ModifiedDate = x.ModifiedDate,
+                CreatedDate = x.Created,
+                ModifiedDate = x.Modified,
                 FirstName = x.FirstName,
                 LastName = x.LastName,
                 IdentificationNumber = x.IdentificationNumber,
@@ -105,8 +104,8 @@ namespace SchoolManagementAPI.Infrastructure.Repositories
                 .Select(x => new StudentVM
                 {
                     Id = x.Id,
-                    CreatedDate = x.CreatedDate,
-                    ModifiedDate = x.ModifiedDate,
+                    CreatedDate = x.Created,
+                    ModifiedDate = x.Modified,
                     FirstName = x.FirstName,
                     LastName = x.LastName,
                     IdentificationNumber = x.IdentificationNumber,
