@@ -312,9 +312,9 @@ E:/Coding/Csharp/SchoolManagementAPI/obj/Debug/net6.0/refint/SchoolManagementAPI
 E:/Coding/Csharp/SchoolManagementAPI/obj/Debug/net6.0/SchoolManagementAPI.pdb
 E:/Coding/Csharp/SchoolManagementAPI/obj/Debug/net6.0/SchoolManagementAPI.genruntimeconfig.cache
 E:/Coding/Csharp/SchoolManagementAPI/obj/Debug/net6.0/ref/SchoolManagementAPI.dll
-/home/gko95/Workspace/SchoolManagementAPI/bin/Debug/net6.0/appsettings.json
 /home/gko95/Workspace/SchoolManagementAPI/bin/Debug/net6.0/nlog.config
 /home/gko95/Workspace/SchoolManagementAPI/bin/Debug/net6.0/appsettings.Development.json
+/home/gko95/Workspace/SchoolManagementAPI/bin/Debug/net6.0/appsettings.json
 /home/gko95/Workspace/SchoolManagementAPI/bin/Debug/net6.0/global.json
 /home/gko95/Workspace/SchoolManagementAPI/bin/Debug/net6.0/SchoolManagementAPI
 /home/gko95/Workspace/SchoolManagementAPI/bin/Debug/net6.0/SchoolManagementAPI.deps.json

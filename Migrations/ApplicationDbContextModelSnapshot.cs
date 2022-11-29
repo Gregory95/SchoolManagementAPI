@@ -441,9 +441,6 @@ namespace SchoolManagementAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Name")
-                        .IsUnique();
-
                     b.ToTable("Schools");
                 });
 
@@ -497,9 +494,6 @@ namespace SchoolManagementAPI.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("IdentificationNumber")
-                        .IsUnique();
 
                     b.HasIndex("SchoolId");
 

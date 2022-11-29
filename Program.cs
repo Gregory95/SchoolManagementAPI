@@ -1,42 +1,41 @@
 
 global using SchoolManagementAPI;
 global using Microsoft.EntityFrameworkCore;
+global using SchoolManagementAPI.Interfaces;
+global using SchoolManagementAPI.Infrastructure.Repositories;
+global using SchoolManagementAPI.Infrastructure;
+global using SchoolManagementAPI.Models.User;
 
-using System.Net;
-using System.Data;
-using Hangfire;
-using SchoolManagementAPI.Interfaces;
-using SchoolManagementAPI.Infrastructure.Repositories;
-using SchoolManagementAPI.Infrastructure;
-using System.Configuration;
-using SchoolManagementAPI.Models.User;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection.Extensions;
-using Microsoft.AspNetCore.Authentication.OAuth;
 using Quartz;
-using NLog;
 using OpenIddict.Abstractions;
 
 var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
+ConfigurationManager configuration = builder.Configuration;
 
 builder.Services.AddControllers();
+
+// Add services to the container.
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("WebApiDatabase"));
     // Configure the context to use an in-memory store.
     options.UseOpenIddict();
 });
+
+// Auto Mapper Configurations
+builder.Services.AddAutoMapper(typeof(Program).Assembly);
+
+builder.Services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
+    {
+        options.Password.RequireDigit = false;
+        options.User.RequireUniqueEmail = false;
+        options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+/\\";
+    }
+)
+.AddEntityFrameworkStores<ApplicationDbContext>()
+.AddDefaultTokenProviders();
 
 builder.Services.AddOpenIddict()
         // Register the OpenIddict core components.
@@ -83,21 +82,6 @@ builder.Services.AddCors(
     })
 );
 
-
-builder.Services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
-    {
-        options.Password.RequireDigit = false;
-        options.User.RequireUniqueEmail = false;
-        options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+/\\";
-    }
-)
-.AddEntityFrameworkStores<ApplicationDbContext>()
-.AddDefaultTokenProviders();
-
-builder.Services.Configure<IISOptions>(options =>
-{
-    options.AutomaticAuthentication = true;
-});
 builder.Services.Configure<IdentityOptions>(options =>
 {
     options.ClaimsIdentity.UserIdClaimType = OpenIddictConstants.Claims.Name;
@@ -110,24 +94,19 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.Password.RequiredUniqueChars = 1;
 });
 
-//other classes that need the logger 
-builder.Services.AddTransient<GenericHelper>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-// Auto Mapper Configurations
-builder.Services.AddAutoMapper(typeof(Program).Assembly);
 
+//other classes that need the logger 
+builder.Services.AddTransient<GenericHelper>();
 builder.Services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-
 builder.Services.AddScoped<IStudentRepository, StudentRepository>();
 builder.Services.AddScoped<ISchoolRepository, SchoolRepository>();
 builder.Services.AddScoped<IAdministrationRepository, AdministrationRepository>();
 
-builder.Services.AddLogging(c => c.ClearProviders());
-
 var app = builder.Build();
 
-Console.Write("App init..");
+Console.WriteLine("App init..");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -144,19 +123,19 @@ app.UseExceptionHandler(new ExceptionHandlerOptions
 
 app.UseHttpsRedirection();
 
-app.UseAuthentication();
-
-app.MapControllers();
+app.UseCors(x => x
+    .AllowAnyOrigin()
+    .AllowAnyMethod()
+    .AllowAnyHeader());
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
-app.UseEndpoints(options =>
-{
-    options.MapControllers();
-    options.MapDefaultControllerRoute();
-});
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
 

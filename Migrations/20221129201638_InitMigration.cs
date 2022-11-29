@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SchoolManagementAPI.Migrations
 {
-    public partial class Init : Migration
+    public partial class InitMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -407,18 +407,6 @@ namespace SchoolManagementAPI.Migrations
                 column: "ReferenceId",
                 unique: true,
                 filter: "[ReferenceId] IS NOT NULL");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Schools_Name",
-                table: "Schools",
-                column: "Name",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Students_IdentificationNumber",
-                table: "Students",
-                column: "IdentificationNumber",
-                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Students_SchoolId",

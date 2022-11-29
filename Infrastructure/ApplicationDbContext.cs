@@ -6,15 +6,13 @@ using SchoolManagementAPI.Models.Student;
 using SchoolManagementAPI.Models.User;
 using System.Reflection.Metadata;
 using static OpenIddict.Abstractions.OpenIddictConstants;
+using Microsoft.AspNetCore.Identity;
 
 namespace SchoolManagementAPI.Infrastructure
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
-
-        public DbSet<Student> Students { get; set; }
-        public DbSet<School> Schools { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -137,19 +135,30 @@ namespace SchoolManagementAPI.Infrastructure
                 // Maps to the AspNetRoleClaims table
                 b.ToTable("AspNetRoleClaims");
             });
-
-            modelBuilder.Entity<Student>()
-            .HasIndex(b => b.IdentificationNumber)
-            .IsUnique();
-
-            modelBuilder.Entity<School>()
-            .HasIndex(b => b.Name)
-            .IsUnique();
         }
 
-        public async void SaveChangesAsync(DbContext dbContext)
+        public async override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
         {
-            await base.SaveChangesAsync();
+            await AuditInfo();
+            return await base.SaveChangesAsync();
         }
+
+        private async Task AuditInfo()
+        {
+            foreach (var entry in ChangeTracker.Entries<dynamic>())
+            {
+                if (entry.State == EntityState.Modified)
+                {
+                    entry.Entity.Modified = DateTime.UtcNow;
+                }
+                else if (entry.State == EntityState.Added)
+                {
+                    entry.Entity.Created = DateTime.UtcNow;
+                }
+            }
+        }
+
+        public DbSet<Student> Students { get; set; }
+        public DbSet<School> Schools { get; set; }
     }
 }

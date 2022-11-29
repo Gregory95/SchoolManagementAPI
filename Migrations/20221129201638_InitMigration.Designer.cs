@@ -12,8 +12,8 @@ using SchoolManagementAPI.Infrastructure;
 namespace SchoolManagementAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221128192354_Init")]
-    partial class Init
+    [Migration("20221129201638_InitMigration")]
+    partial class InitMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -443,9 +443,6 @@ namespace SchoolManagementAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Name")
-                        .IsUnique();
-
                     b.ToTable("Schools");
                 });
 
@@ -499,9 +496,6 @@ namespace SchoolManagementAPI.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("IdentificationNumber")
-                        .IsUnique();
 
                     b.HasIndex("SchoolId");
 
