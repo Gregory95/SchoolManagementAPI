@@ -142,24 +142,24 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-using (var scope = app.Services.CreateScope())
-{
-    var services = scope.ServiceProvider;
+// using (var scope = app.Services.CreateScope())
+// {
+//     var services = scope.ServiceProvider;
 
-    var context = services.GetRequiredService<ApplicationDbContext>();
+//     var context = services.GetRequiredService<ApplicationDbContext>();
 
-    var pendingMigrations = await context.Database.GetPendingMigrationsAsync();
+//     var pendingMigrations = await context.Database.GetPendingMigrationsAsync();
 
-    if (pendingMigrations.Any())
-    {
-        Console.WriteLine($"You have {pendingMigrations.Count()} pending migrations to apply.");
-        Console.WriteLine("Applying pending migrations now");
-        await context.Database.MigrateAsync();
-    }
+//     if (pendingMigrations.Any())
+//     {
+//         Console.WriteLine($"You have {pendingMigrations.Count()} pending migrations to apply.");
+//         Console.WriteLine("Applying pending migrations now");
+//         await context.Database.MigrateAsync();
+//     }
 
-    var lastAppliedMigration = (await context.Database.GetAppliedMigrationsAsync()).Last();
+//     var lastAppliedMigration = (await context.Database.GetAppliedMigrationsAsync()).Last();
 
-    Console.WriteLine($"You're on schema version: {lastAppliedMigration}");
-}
+//     Console.WriteLine($"You're on schema version: {lastAppliedMigration}");
+// }
 
 app.Run();

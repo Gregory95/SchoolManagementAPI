@@ -10,14 +10,12 @@ using Microsoft.AspNetCore.Identity;
 
 namespace SchoolManagementAPI.Infrastructure
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : IdentityDbContext<IdentityUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
-
             modelBuilder.Entity<ApplicationUser>(b =>
             {
                 // Indexes for "normalized" username and email, to allow efficient lookups
@@ -135,15 +133,17 @@ namespace SchoolManagementAPI.Infrastructure
                 // Maps to the AspNetRoleClaims table
                 b.ToTable("AspNetRoleClaims");
             });
+
+            base.OnModelCreating(modelBuilder);
         }
 
         public async override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
         {
-            await AuditInfo();
+            AuditInfo();
             return await base.SaveChangesAsync();
         }
 
-        private async Task AuditInfo()
+        private void AuditInfo()
         {
             foreach (var entry in ChangeTracker.Entries<dynamic>())
             {

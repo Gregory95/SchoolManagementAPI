@@ -155,14 +155,15 @@ namespace SchoolManagementAPI.Controllers
                     ErrorList error = new ErrorList();
 
                     var existingUser = await _db.Users.AsTracking()
-                        .Include(x => x.UserRoles).ThenInclude(x => x.Role)
                         .Where(x => x.UserName == username)
                         .SingleOrDefaultAsync();
 
+                    var userRole = await _db.UserRoles.Where(x => x.UserId == existingUser.Id).ToListAsync();
+
                     if (existingUser != null)
                     {
-                        _db.UserRoles.RemoveRange(existingUser.UserRoles);
-                        await _userManager.DeleteAsync(existingUser);
+                        _db.UserRoles.RemoveRange(userRole);
+                        await _userManager.DeleteAsync(_mapper.Map<IdentityUser, ApplicationUser>(existingUser));
                         await _db.SaveChangesAsync();
                         await transaction.CommitAsync();
 
