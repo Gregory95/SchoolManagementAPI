@@ -1,14 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "mUJbYKB1jEBTHjdqb6NY+1GaaKBjYVyyaiZgcWBW+N30fkQv7PhWeI6DvEkBxeBR7FZ+b2veqnpgjm72B0OQlQ==",
+  "dgSpecHash": "VNR6BOcZfhm6ptqEHVslkUAAiKixJZhPilwkC8IcMhLa93z6N2b2J/QI4D8nsLjZBkikTQoOJVpADGTsJO8zlg==",
   "success": true,
   "projectFilePath": "/home/gko95/Workspace/SchoolManagementAPI/SchoolManagementAPI.csproj",
   "expectedPackageFiles": [
     "/home/gko95/.nuget/packages/automapper/12.0.0/automapper.12.0.0.nupkg.sha512",
     "/home/gko95/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.0/automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
-    "/home/gko95/.nuget/packages/hangfire.aspnetcore/1.7.31/hangfire.aspnetcore.1.7.31.nupkg.sha512",
-    "/home/gko95/.nuget/packages/hangfire.core/1.7.31/hangfire.core.1.7.31.nupkg.sha512",
-    "/home/gko95/.nuget/packages/hangfire.sqlserver/1.7.31/hangfire.sqlserver.1.7.31.nupkg.sha512",
+    "/home/gko95/.nuget/packages/hangfire.aspnetcore/1.7.32/hangfire.aspnetcore.1.7.32.nupkg.sha512",
+    "/home/gko95/.nuget/packages/hangfire.core/1.7.32/hangfire.core.1.7.32.nupkg.sha512",
+    "/home/gko95/.nuget/packages/hangfire.sqlserver/1.7.32/hangfire.sqlserver.1.7.32.nupkg.sha512",
     "/home/gko95/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
     "/home/gko95/.nuget/packages/messagepack/2.1.152/messagepack.2.1.152.nupkg.sha512",
     "/home/gko95/.nuget/packages/messagepack.annotations/2.1.152/messagepack.annotations.2.1.152.nupkg.sha512",
