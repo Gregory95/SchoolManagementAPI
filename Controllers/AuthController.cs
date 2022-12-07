@@ -55,7 +55,6 @@ namespace SchoolManagementAPI.Controllers
             IgnoreAntiforgeryToken,
             Produces("application/json")
         ]
-
         [ApiExplorerSettings(IgnoreApi = true)]
         public async Task<IActionResult> Exchange()
         {

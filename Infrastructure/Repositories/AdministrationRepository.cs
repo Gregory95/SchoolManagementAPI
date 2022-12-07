@@ -76,7 +76,7 @@ namespace SchoolManagementAPI.Infrastructure.Repositories
             existingRole.Description = model.Description;
             existingRole.IsAdmin = model.IsAdmin;
             existingRole.Name = model.Name;
-            existingRole.IsDeleted = model.IsDeleted;
+            existingRole.IsDeleted = model.IsDeleted ?? false;
 
             await _db.SaveChangesAsync();
 

@@ -12,11 +12,11 @@ namespace SchoolManagementAPI.ViewModels.User
         [MaxLength(2000)]
         public string Password { get; set; }
         [MaxLength(255)]
-        public string? Name { get; set; }
+        public string Name { get; set; }
         [MaxLength(255)]
-        public string? Email { get; set; }
+        public string Email { get; set; }
         [MaxLength(255)]
-        public string? PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
         [Required]
         [MaxLength(255)]
         public string Role { get; set; }
